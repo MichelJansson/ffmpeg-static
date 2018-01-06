@@ -34,6 +34,12 @@ download 'https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-32bit-static.
 echo '  extracting'
 $tar_exec -x -C ../bin/linux/ia32 --strip-components 1 -f linux-ia32.tar.xz --wildcards '*/ffmpeg'
 
+echo 'linux arm'
+echo '  downloading from johnvansickle.com'
+download 'https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-armhf-32bit-static.tar.xz' linux-arm.tar.xz
+echo '  extracting'
+$tar_exec -x -C ../bin/linux/arm --strip-components 1 -f linux-arm.tar.xz --wildcards '*/ffmpeg'
+
 # find latest version
 LATEST_OSX=$(curl -s https://evermeet.cx/pub/ffmpeg/ | grep ffmpeg | grep .7z | head -1 | cut -d'"' -f 2)
 
